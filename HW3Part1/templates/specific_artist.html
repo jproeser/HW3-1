@@ -4,6 +4,8 @@
 
 <ul>
 {% for item in results[:3] %}
-	<li>{{ item["trackName"] }}</li>
+
+	<li><a href="{{ item['trackViewUrl'] }}">{{ item["trackName"] }}</a></li>
+	<a href="{{ item['trackViewUrl'] }}"><img src={{ item['artworkUrl100'] }} alt="Artwork" ></a>
 {% endfor %}
 </ul>
