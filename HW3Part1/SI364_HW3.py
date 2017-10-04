@@ -40,25 +40,6 @@ def artistform():
 
 @app.route('/artistinfo')
 def artistinfo():
-    # if request.method == 'GET':
-    #     result = request.args
-    #     #r = result.get('artist')
-     
-    #     # params = {}
-    #     # params['x'] = result.get('artist')
-      
-    #     # params = {}
-    #     params = result.get('artist')
-
-    #     # params['limit'] = result.get('num')
-    #     lookup = requests.get('https://itunes.apple.com/search?', params = params)
-    #     #return str(lookup
-    #     data = json.loads(lookup.text)
-    #     #return x
-    #     #return r
-    #     return render_template('artist_info.html', objects = data['results'])#, results = data['results'])
-
-
 
 
     if request.method == 'GET':
@@ -71,29 +52,11 @@ def artistinfo():
         return render_template('artist_info.html', objects = data['results'])
 
 
-  ########
-
-# @app.route('/itunes-result')
-# def resultTunes():
-#     if request.method == 'GET':
-#         result = request.args
-#         params = {}
-#         params['term'] = result.get('artist')
-#         params['limit'] = result.get('num')
-#         resp = requests.get('https://itunes.apple.com/search?', params = params)
-#         data = json.loads(resp.text)
-#         return render_template('list.html', results = data['results'])
-
-################
-
-   # return render_template('artist_info.html')
-
-#Track Name: {{ r['trackName'] }}
 
 @app.route('/artistlinks')
 def artistlinks():
 	return render_template('artist_links.html')
-##works
+
 
 @app.route('/specific/song/<artist_name>')
 def specificsong(artist_name):
@@ -103,9 +66,7 @@ def specificsong(artist_name):
         params['term'] = artist_name
         resp = requests.get('https://itunes.apple.com/search?', params = params)
         data = json.loads(resp.text)        
-        #r = result.get('artist_name')
 
-        #return artist_name
         return render_template('specific_artist.html', results = data['results'])
 
 

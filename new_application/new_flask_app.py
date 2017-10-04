@@ -40,10 +40,7 @@ def scform():
 def parseSoundcloud(x):
   
     z = str(x)
-    # chromedriver = "files/chromedriver"
-    # os.environ["webdriver.chrome.driver"] = chromedriver
-    # driver = webdriver.Chrome(chromedriver)
-    ####Possibility of opening the window of each account that is searched through, rather than doing it through phantom
+
     driver = webdriver.PhantomJS()
     driver.set_window_size(1120, 550)
     url = 'https://soundcloud.com/'+str(x)+'/tracks'
@@ -74,33 +71,12 @@ def parseSoundcloud(x):
 
 @app.route('/yoursc')
 
-        
-        # params = {}
-        # params['x'] = result.get('artist')
-        # params['limit'] = result.get('num')
-        # resp = requests.get('https://itunes.apple.com/search?', params = params)
-        # data = json.loads(resp.text)
-        #return x
-		#return r
-		#return render_template('custom_template2.html', objects = r)#, results = data['results'])
-
-
-
 def yoursc():
     if request.method == 'GET':
         result = request.args
         x = result.get('sc')
         return parseSoundcloud(x)
-    
-# def soundcloud():
-#   if request.method == 'GET':
-#         result = request.args
-#         x = result.get('account')
-#         return parseSoundcloud(x)
-
-
-
-
+ 
 
 if __name__ == '__main__':
     app.run(debug = True)
